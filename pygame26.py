@@ -6,6 +6,7 @@ from pygame.locals import *
 pygame.init()
 
 pygame.display.set_caption('cowabunga!')
+monitor_size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
 
 win_size = (400, 400)
 
@@ -27,7 +28,7 @@ while True:
         if event.key == K_f:
             fullscreen = not fullscreen
         if fullscreen:
-            screen = pygame.display.set_mode((screen.get_width(), screen.get_height()), pygame.FULLSCREEN)
+            screen = pygame.display.set_mode(monitor_size, pygame.FULLSCREEN)
         else:
             screen = pygame.display.set_mode((screen.get_width(), screen.get_height()), pygame.RESIZABLE)
 
