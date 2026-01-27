@@ -11,6 +11,8 @@ win_size = (400, 400)
 
 screen = pygame.display.set_mode(win_size, pygame.RESIZABLE)
 
+fullscreen = False
+
 while True:
 
     for event in pygame.event.get():
@@ -18,9 +20,16 @@ while True:
             pygame.quit()
             sys.exit()
     if event.type == VIDEORESIZE:
-        win_size = event.size
-        screen = pygame.display.set_mode(win_size, pygame.RESIZABLE)
+        if not fullscreen:
+            screen = pygame.display.set_mode(event.size, pygame.RESIZABLE)
     pygame.display.update()
+    if event.type == KEYDOWN:
+        if event.key == K_f:
+            fullscreen = not fullscreen
+        if fullscreen:
+            screen = pygame.display.set_mode((screen.get_width(), screen.get_height()), pygame.FULLSCREEN)
+        else:
+            screen = pygame.display.set_mode((screen.get_width(), screen.get_height()), pygame.RESIZABLE)
 
 pygame.display.update()
 clock.tick(60)
