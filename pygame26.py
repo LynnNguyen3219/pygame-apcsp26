@@ -20,6 +20,9 @@ moving_left = False
 aigis_location = [50,50]
 aigis_vertical_location = 0
 
+aigis_rect = pygame.Rect(aigis_location[0], aigis_location[1], aigis.get_width(), aigis.get_height())
+ouch = pygame.Rect(100,1000,10000,100)
+
 fullscreen = False
 
 while True:
@@ -37,6 +40,14 @@ while True:
         aigis_location[0] += 4
     if moving_left == True:
         aigis_location[0] -= 4
+
+    aigis_rect.x = aigis_location[0]
+    aigis_rect.y = aigis_location[1]
+
+    if aigis_rect.colliderect(ouch):
+        pygame.draw.rect(screen, (255,0,0), ouch)
+    else:
+        pygame.draw.rect(screen, (0,0,0), ouch)
 
     for event in pygame.event.get():
         if event.type == QUIT:
