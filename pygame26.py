@@ -1,18 +1,18 @@
-import pygame, sys
+import pygame, sys, os
 
 clock = pygame.time.Clock()
 
 from pygame.locals import *
 pygame.init()
 
-pygame.display.set_caption('cowabunga!')
+pygame.display.set_caption('its aigis time!')
 monitor_size = (pygame.display.Info().current_w, pygame.display.Info().current_h)
 
 win_size = (1920, 1080)
 
 screen = pygame.display.set_mode(win_size, 0, 32)
 
-aigis = pygame.image.load('aigis.png')
+aigis = pygame.image.load('pygame-apcsp26/images/aigis.png')
 
 moving_right = False
 moving_left = False
