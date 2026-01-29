@@ -21,7 +21,7 @@ aigis_location = [50,50]
 aigis_vertical_location = 0
 
 aigis_rect = pygame.Rect(aigis_location[0], aigis_location[1], aigis.get_width(), aigis.get_height())
-ouch = pygame.Rect(100,1000,10000,100)
+ouch = pygame.Rect(0,1000,10000,100)
 
 fullscreen = False
 
