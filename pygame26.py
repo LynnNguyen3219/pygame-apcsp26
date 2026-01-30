@@ -66,5 +66,5 @@ while True:
         if event.key == K_LEFT:
             moving_left = False 
 
-pygame.display.update()
-clock.tick(60)
+    pygame.display.update()
+    clock.tick(60)
