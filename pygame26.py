@@ -21,7 +21,7 @@ aigis_location = [50,50]
 aigis_vertical_location = 0
 
 aigis_rect = pygame.Rect(aigis_location[0], aigis_location[1], aigis.get_width(), aigis.get_height())
-ouch = pygame.Rect(0,1000,10000,100)
+ouch = pygame.Rect(0,1000,1920,50)
 
 fullscreen = False
 
@@ -33,13 +33,13 @@ while True:
     if aigis_location[1] > win_size[1]-aigis.get_height():
         aigis_vertical_location = -aigis_vertical_location
     else:
-        aigis_vertical_location += 0.1
+        aigis_vertical_location += 0.05
     aigis_location[1] += aigis_vertical_location
 
     if moving_right == True:
-        aigis_location[0] += 4
+        aigis_location[0] += 2
     if moving_left == True:
-        aigis_location[0] -= 4
+        aigis_location[0] -= 2
 
     aigis_rect.x = aigis_location[0]
     aigis_rect.y = aigis_location[1]
