@@ -12,7 +12,12 @@ win_size = (1920, 1080)
 
 screen = pygame.display.set_mode(win_size, 0, 32)
 
+display = pygame.Surface((960, 540))
+
+
 aigis = pygame.image.load('pygame-apcsp26/images/aigis.png')
+
+grass = pygame.image.load('pygame-apcsp26/images/grass.png')
 
 moving_right = False
 moving_left = False
@@ -33,21 +38,16 @@ while True:
     if aigis_location[1] > win_size[1]-aigis.get_height():
         aigis_vertical_location = -aigis_vertical_location
     else:
-        aigis_vertical_location += 0.05
+        aigis_vertical_location += 0.07
     aigis_location[1] += aigis_vertical_location
 
     if moving_right == True:
-        aigis_location[0] += 2
+        aigis_location[0] += 3
     if moving_left == True:
-        aigis_location[0] -= 2
+        aigis_location[0] -= 3
 
     aigis_rect.x = aigis_location[0]
     aigis_rect.y = aigis_location[1]
-
-    if aigis_rect.colliderect(ouch):
-        pygame.draw.rect(screen, (255,0,0), ouch)
-    else:
-        pygame.draw.rect(screen, (0,0,0), ouch)
 
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -66,5 +66,7 @@ while True:
         if event.key == K_LEFT:
             moving_left = False 
 
+    surf = pygame.transform.scale(display, win_size)
+    screen.blit(display, win_size)
     pygame.display.update()
     clock.tick(60)
