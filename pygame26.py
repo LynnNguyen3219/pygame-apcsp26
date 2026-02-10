@@ -35,10 +35,7 @@ while True:
 
     screen.blit(aigis,aigis_location)
 
-    if aigis_location[1] > win_size[1]-aigis.get_height():
-        aigis_vertical_location = -aigis_vertical_location
-    else:
-        aigis_vertical_location += 0.07
+    aigis_vertical_location += 0.07
     aigis_location[1] += aigis_vertical_location
 
     if moving_right == True:
